@@ -1,35 +1,24 @@
-import { sumar, multiplicar } from "./sumador";
+import { saludar, edadPersona, Horario } from "./saludar.js";
 
-// Elementos para la operación de suma
-const firstSumar = document.querySelector("#primer-numero-sumar");
-const secondSumar = document.querySelector("#segundo-numero-sumar");
-const sumarButton = document.querySelector("#sumar-button");
-const resultadoDivSumar = document.querySelector("#resultado-div");
+const nombre_input = document.querySelector("#nombre");
+const edad_input = document.querySelector("#edad");
+const genero_f_input = document.querySelector("#genero-f");
+const genero_m_input = document.querySelector("#genero-m");
+const idioma_select = document.querySelector("#idioma"); 
+const form = document.querySelector("#saludar-form");
+const div = document.querySelector("#resultado-div");
 
-// Elementos para la operación de multiplicación
-const firstMultiplicar = document.querySelector("#primer-numero-multiplicar");
-const secondMultiplicar = document.querySelector("#segundo-numero-multiplicar");
-const multiplicarButton = document.querySelector("#multiplicar-button");
-const resultadoDivMultiplicar = document.querySelector("#resultado-div-multiplicar");
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-// Evento para sumar
-sumarButton.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const firstNumber = Number.parseInt(firstSumar.value);
-  const secondNumber = Number.parseInt(secondSumar.value);
-
-  const resultado = sumar(firstNumber, secondNumber);
-  resultadoDivSumar.innerHTML = `<p>Resultado de la suma: ${resultado}</p>`;
-});
-
-// Evento para multiplicar
-multiplicarButton.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const firstNumber = Number.parseInt(firstMultiplicar.value);
-  const secondNumber = Number.parseInt(secondMultiplicar.value);
-
-  const resultado = multiplicar(firstNumber, secondNumber);
-  resultadoDivMultiplicar.innerHTML = `<p>Resultado de la multiplicación: ${resultado}</p>`;
+    const nombre = nombre_input.value;
+    const edad = parseInt(edad_input.value);
+    let genero;
+    if (genero_f_input.checked) {
+        genero = genero_f_input.value;
+    } else if (genero_m_input.checked) {
+        genero = genero_m_input.value;
+    }
+    const idioma = idioma_select.value;
+    div.innerHTML = `<p> ${Horario(idioma)}, ${edadPersona(edad, genero, idioma)} ${saludar(nombre)}.</p>`;
 });
