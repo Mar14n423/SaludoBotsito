@@ -5,9 +5,9 @@ function saludar(nombre) {
 function edadPersona(edad, genero, idioma) {
     if (idioma === "ES") {
         if (edad > 30) {
-            return genero === "F" ? "SRA" : "SR";
+            return genero === "F" ? "Sra." : "Sr.";
         } else {
-            return genero === "F" ? "jovencita" : "joven";
+            return genero === "F" ? "señorita" : "joven";
         }
     } else if (idioma === "EN") {
         if (edad > 30) {

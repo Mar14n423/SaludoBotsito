@@ -1,4 +1,4 @@
-import { saludar, edadPersona, Horario } from "./saludar.js";
+import { saludar, edadPersona, Horario } from "./PersonalizacionSaludo.js";
 
 const nombre_input = document.querySelector("#nombre");
 const edad_input = document.querySelector("#edad");
